@@ -1,0 +1,2618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our First Anniversary ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+:root{
+    --bg:#050505;
+    --soft:#f5dfe5;
+    --pink:#ff8fa3;
+    --white:#ffffff;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:
+        radial-gradient(circle at 15% 20%, rgba(255,80,140,.10), transparent 30%),
+        radial-gradient(circle at 85% 35%, rgba(130,70,255,.09), transparent 32%),
+        radial-gradient(circle at 50% 90%, rgba(255,120,180,.07), transparent 35%),
+        var(--bg);
+    color:white;
+    font-family:'Poppins',sans-serif;
+    overflow-x:hidden;
+}
+
+/* =====================================================
+   LOADING SCREEN
+===================================================== */
+
+#loading{
+    position:fixed;
+    inset:0;
+    background:#030303;
+    z-index:99999;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    transition:1.2s ease;
+}
+
+.loading-heart{
+    font-size:65px;
+    animation:pulse 1.2s infinite;
+}
+
+.loading-text{
+    margin-top:20px;
+    font-size:10px;
+    letter-spacing:6px;
+    opacity:.6;
+}
+
+@keyframes pulse{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.3);
+    }
+}
+
+/* =====================================================
+   CINEMATIC INTRO
+===================================================== */
+
+#intro{
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at center,#5a2238 0%,#24102a 45%,#05020a 100%);
+    z-index:9999;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    overflow:hidden;
+    transition:2s ease;
+}
+
+.intro-content{
+    position:relative;
+    z-index:5;
+}
+
+.intro-small{
+    font-size:10px;
+    letter-spacing:8px;
+    opacity:.6;
+    animation:introFade 2s ease;
+}
+
+.intro-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(70px,13vw,170px);
+    line-height:.8;
+    font-weight:400;
+    margin:30px 0;
+    animation:introTitle 2.5s ease;
+}
+
+.intro-title span{
+    display:block;
+    font-style:italic;
+}
+
+.intro-date{
+    font-size:11px;
+    letter-spacing:4px;
+    opacity:.65;
+    animation:introFade 3s ease;
+}
+
+.enter-btn{
+    margin-top:40px;
+    padding:15px 40px;
+    border:1px solid rgba(255,255,255,.4);
+    border-radius:50px;
+    color:white;
+    background:transparent;
+    cursor:pointer;
+    font-size:10px;
+    letter-spacing:3px;
+    transition:.5s;
+    animation:introFade 3.5s ease;
+}
+
+.enter-btn:hover{
+    background:white;
+    color:black;
+}
+
+@keyframes introTitle{
+    from{
+        opacity:0;
+        transform:scale(1.4);
+        letter-spacing:15px;
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+        letter-spacing:0;
+    }
+}
+
+@keyframes introFade{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =====================================================
+   CANVAS PARTICLES
+===================================================== */
+
+#particles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:2;
+}
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    left:0;
+    padding:20px 7%;
+    z-index:500;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(0,0,0,.2);
+    backdrop-filter:blur(15px);
+}
+
+.logo{
+    font-family:'Cormorant Garamond',serif;
+    font-size:25px;
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-size:10px;
+    letter-spacing:2px;
+    opacity:.75;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    opacity:1;
+}
+
+/* =====================================================
+   MUSIC BUTTON
+===================================================== */
+
+.music-btn{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.3);
+    background:rgba(0,0,0,.6);
+    color:white;
+    z-index:800;
+    cursor:pointer;
+    backdrop-filter:blur(10px);
+    font-size:18px;
+}
+
+.music-btn.playing{
+    animation:musicPulse 1.5s infinite;
+}
+
+@keyframes musicPulse{
+    0%,100%{
+        box-shadow:0 0 0 rgba(255,255,255,0);
+    }
+    50%{
+        box-shadow:0 0 30px rgba(255,143,163,.5);
+    }
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    position:relative;
+    background:
+        radial-gradient(circle at 50% 40%,#542038,#1d0e24 45%,#05020a);
+    overflow:hidden;
+}
+
+.hero-content{
+    position:relative;
+    z-index:10;
+    transition:transform .2s ease-out;
+}
+
+.hero-subtitle{
+    font-size:10px;
+    letter-spacing:8px;
+    opacity:.6;
+}
+
+.hero h1{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:400;
+    font-size:clamp(75px,14vw,180px);
+    line-height:.8;
+    margin:25px 0;
+}
+
+.hero h1 span{
+    display:block;
+    font-style:italic;
+}
+
+#typing{
+    min-height:30px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:24px;
+    color:#e7cbd1;
+}
+
+.cursor{
+    animation:blink .7s infinite;
+}
+
+@keyframes blink{
+    50%{
+        opacity:0;
+    }
+}
+
+.hero-scroll{
+    margin-top:50px;
+    font-size:9px;
+    letter-spacing:4px;
+    opacity:.5;
+}
+
+/* =====================================================
+   GENERAL SECTION
+===================================================== */
+
+section{
+    padding:130px 7%;
+    position:relative;
+}
+
+.section-heading{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.section-heading small{
+    font-size:9px;
+    letter-spacing:6px;
+    opacity:.5;
+}
+
+.section-heading h2{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:400;
+    font-size:65px;
+    margin-top:10px;
+}
+
+.section-heading h2 span{
+    font-style:italic;
+}
+
+/* =====================================================
+   DATE COUNTER
+===================================================== */
+
+.counter-section{
+    text-align:center;
+    background:radial-gradient(circle at 50% 35%, #24112f 0%, #12091a 52%, #08050d 100%);
+}
+
+.counter-intro{
+    font-family:'Cormorant Garamond',serif;
+    font-size:28px;
+    max-width:700px;
+    margin:0 auto 60px;
+    color:#ddd;
+}
+
+.counter{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.counter-box{
+    min-width:130px;
+    padding:30px 20px;
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.025);
+}
+
+.counter-number{
+    font-family:'Cormorant Garamond',serif;
+    font-size:55px;
+}
+
+.counter-label{
+    font-size:9px;
+    letter-spacing:3px;
+    opacity:.45;
+}
+
+/* =====================================================
+   3D PHOTO CARDS
+===================================================== */
+
+.three-d-section{
+    background:
+        radial-gradient(circle at center,#35182b,#08050c 65%);
+}
+
+.card-scene{
+    max-width:1050px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:35px;
+    perspective:1500px;
+}
+
+.photo-card{
+    height:480px;
+    position:relative;
+    transform-style:preserve-3d;
+    transition:transform .15s ease;
+}
+
+.photo-card-inner{
+    position:absolute;
+    inset:0;
+    transform-style:preserve-3d;
+    border-radius:8px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.15);
+    background:#111;
+    box-shadow:0 30px 80px rgba(0,0,0,.7);
+}
+
+.photo-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:1s;
+}
+
+.photo-card:hover img{
+    transform:scale(1.08);
+}
+
+.card-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        transparent 40%,
+        rgba(0,0,0,.8)
+    );
+}
+
+.card-text{
+    position:absolute;
+    bottom:30px;
+    left:30px;
+    transform:translateZ(50px);
+}
+
+.card-text small{
+    font-size:9px;
+    letter-spacing:3px;
+    opacity:.6;
+}
+
+.card-text h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:32px;
+    margin-top:5px;
+}
+
+/* =====================================================
+   MASONRY GALLERY
+===================================================== */
+
+.gallery-section{
+    background:radial-gradient(circle at 50% 35%, #2a1235 0%, #130a1b 52%, #08050d 100%);
+}
+
+.masonry{
+    columns:4 250px;
+    column-gap:15px;
+    max-width:1250px;
+    margin:auto;
+}
+
+.gallery-item{
+    position:relative;
+    break-inside:avoid;
+    margin-bottom:15px;
+    overflow:hidden;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.gallery-item img{
+    width:100%;
+    display:block;
+    transition:1s;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.08);
+    filter:brightness(.65);
+}
+
+.gallery-item::after{
+    content:"♡";
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:45px;
+    opacity:0;
+    transition:.5s;
+}
+
+.gallery-item:hover::after{
+    opacity:1;
+}
+
+/* =====================================================
+   TIMELINE
+===================================================== */
+
+.timeline-section{
+    background:radial-gradient(circle at 50% 40%, #26112f 0%, #12091a 55%, #08050d 100%);
+}
+
+.timeline{
+    max-width:900px;
+    margin:auto;
+    position:relative;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:0;
+    bottom:0;
+    width:1px;
+    background:rgba(255,255,255,.15);
+}
+
+.timeline-row{
+    width:50%;
+    padding:30px 50px;
+    position:relative;
+}
+
+.timeline-row:nth-child(even){
+    margin-left:50%;
+}
+
+.timeline-row:nth-child(odd){
+    text-align:right;
+}
+
+.timeline-dot{
+    position:absolute;
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:white;
+    top:38px;
+    right:-6px;
+    box-shadow:0 0 20px white;
+}
+
+.timeline-row:nth-child(even) .timeline-dot{
+    left:-6px;
+}
+
+.timeline-row span{
+    font-size:9px;
+    letter-spacing:4px;
+    opacity:.5;
+}
+
+.timeline-row h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:35px;
+    margin:8px 0;
+}
+
+.timeline-row p{
+    font-size:12px;
+    line-height:1.8;
+    color:#aaa;
+}
+
+/* =====================================================
+   WISHES
+===================================================== */
+
+.wishes-section{
+    background:
+        radial-gradient(circle at center,#4a1d32,#09050d 70%);
+}
+
+.wishes{
+    max-width:1050px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.wish{
+    padding:45px 30px;
+    min-height:250px;
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.025);
+    transition:.5s;
+}
+
+.wish:hover{
+    transform:translateY(-12px) rotateX(3deg);
+    background:rgba(255,255,255,.05);
+}
+
+.quote{
+    font-family:'Cormorant Garamond',serif;
+    font-size:60px;
+    opacity:.4;
+}
+
+.wish p{
+    font-family:'Cormorant Garamond',serif;
+    font-size:23px;
+    line-height:1.5;
+    color:#ddd;
+}
+
+.wish h4{
+    margin-top:25px;
+    font-size:9px;
+    letter-spacing:3px;
+    opacity:.5;
+}
+
+/* =====================================================
+   SURPRISE
+===================================================== */
+
+.surprise-section{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:
+        radial-gradient(circle,#522038,#07030b 70%);
+}
+
+.surprise-content{
+    max-width:800px;
+}
+
+.surprise-content h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(60px,9vw,110px);
+    font-weight:400;
+    line-height:.9;
+}
+
+.surprise-content h2 span{
+    font-style:italic;
+}
+
+.surprise-button{
+    margin-top:45px;
+    padding:16px 40px;
+    border-radius:50px;
+    border:1px solid rgba(255,255,255,.5);
+    background:transparent;
+    color:white;
+    cursor:pointer;
+    letter-spacing:3px;
+    font-size:9px;
+    transition:.5s;
+}
+
+.surprise-button:hover{
+    background:white;
+    color:#000;
+}
+
+.secret-message{
+    max-height:0;
+    overflow:hidden;
+    transition:1.5s ease;
+}
+
+.secret-message.open{
+    max-height:1200px;
+    overflow:visible;
+    margin-top:45px;
+}
+
+.secret-message.open{
+    max-height:1200px;
+    margin-top:45px;
+    overflow:visible;
+}
+
+.secret-message p{
+    font-family:'Cormorant Garamond',serif;
+    font-size:28px;
+    line-height:1.7;
+    color:#ddd;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    padding:50px 20px;
+    text-align:center;
+    background:radial-gradient(circle at 50% 30%, #1b0b24 0%, #0b0610 65%, #05030a 100%);
+}
+
+footer p{
+    font-size:9px;
+    letter-spacing:4px;
+    opacity:.4;
+}
+
+/* =====================================================
+   FALLING PETALS
+===================================================== */
+
+.petal{
+    position:fixed;
+    top:-30px;
+    pointer-events:none;
+    z-index:300;
+    animation:fall linear forwards;
+}
+
+@keyframes fall{
+
+    0%{
+        transform:translateY(-30px) rotate(0deg);
+        opacity:0;
+    }
+
+    10%{
+        opacity:.8;
+    }
+
+    100%{
+        transform:
+        translateY(110vh)
+        translateX(120px)
+        rotate(600deg);
+        opacity:0;
+    }
+}
+
+/* =====================================================
+   MOUSE HEART
+===================================================== */
+
+.mouse-heart{
+    position:fixed;
+    pointer-events:none;
+    z-index:10000;
+    font-size:15px;
+    animation:mouseHeart .9s forwards;
+}
+
+@keyframes mouseHeart{
+
+    0%{
+        opacity:1;
+        transform:translate(-50%,-50%) scale(.5);
+    }
+
+    100%{
+        opacity:0;
+        transform:
+        translate(-50%,-120px)
+        scale(1.5);
+    }
+}
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+.reveal{
+    opacity:0;
+    transform:translateY(60px);
+    transition:1s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:800px){
+
+    nav{
+        padding:17px 5%;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    section{
+        padding:90px 5%;
+    }
+
+    .hero h1{
+        font-size:75px;
+    }
+
+    .section-heading h2{
+        font-size:48px;
+    }
+
+    .card-scene{
+        grid-template-columns:1fr;
+        max-width:360px;
+    }
+
+    .photo-card{
+        height:460px;
+    }
+
+    .wishes{
+        grid-template-columns:1fr;
+    }
+
+    .timeline::before{
+        left:8px;
+    }
+
+    .timeline-row,
+    .timeline-row:nth-child(even){
+        width:100%;
+        margin-left:0;
+        text-align:left;
+        padding:30px 20px 30px 35px;
+    }
+
+    .timeline-dot,
+    .timeline-row:nth-child(even) .timeline-dot{
+        left:2px;
+        right:auto;
+    }
+
+    .counter-box{
+        min-width:100px;
+    }
+
+    .counter-number{
+        font-size:45px;
+    }
+
+}
+
+/* =====================================================
+   CUSTOM SCROLLBAR
+===================================================== */
+
+::-webkit-scrollbar{
+    width:5px;
+}
+
+::-webkit-scrollbar-track{
+    background:#000;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#444;
+    border-radius:10px;
+}
+
+
+/* =====================================================
+   MOBILE VIEW OPTIMIZATION ONLY
+   Existing desktop HTML, CSS and JavaScript unchanged
+===================================================== */
+
+@media (max-width: 800px){
+
+    html, body{
+        width:100%;
+        max-width:100%;
+        overflow-x:hidden;
+    }
+
+    nav{
+        padding:14px 18px;
+        min-height:60px;
+    }
+
+    .logo{
+        font-size:22px;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .music-btn{
+        width:48px;
+        height:48px;
+        right:16px;
+        bottom:16px;
+        font-size:16px;
+    }
+
+    #intro{
+        padding:20px;
+    }
+
+    .intro-content{
+        width:100%;
+        max-width:360px;
+    }
+
+    .intro-small{
+        font-size:7px;
+        letter-spacing:3px;
+        line-height:1.7;
+    }
+
+    .intro-title{
+        font-size:clamp(52px,16vw,72px);
+        line-height:.86;
+        margin:24px 0;
+    }
+
+    .intro-date{
+        font-size:9px;
+        letter-spacing:2px;
+    }
+
+    .enter-btn{
+        margin-top:28px;
+        padding:13px 25px;
+        font-size:8px;
+        letter-spacing:2px;
+    }
+
+    .hero{
+        min-height:100svh;
+        padding:80px 18px 40px;
+    }
+
+    .hero-content{
+        width:100%;
+        max-width:390px;
+    }
+
+    .hero-subtitle{
+        font-size:7px;
+        letter-spacing:3px;
+        line-height:1.8;
+    }
+
+    .hero h1{
+        font-size:clamp(58px,18vw,82px);
+        line-height:.84;
+        margin:22px 0;
+    }
+
+    #typing{
+        min-height:52px;
+        padding:0 8px;
+        font-size:19px;
+        line-height:1.5;
+    }
+
+    .hero-scroll{
+        margin-top:35px;
+        font-size:7px;
+        letter-spacing:2px;
+    }
+
+    section{
+        padding:80px 18px;
+    }
+
+    .section-heading{
+        margin-bottom:42px;
+    }
+
+    .section-heading small{
+        font-size:7px;
+        letter-spacing:4px;
+    }
+
+    .section-heading h2{
+        font-size:clamp(38px,11vw,50px);
+        line-height:1;
+        margin-top:10px;
+    }
+
+    .counter-intro{
+        font-size:21px;
+        line-height:1.55;
+        margin:0 auto 40px;
+    }
+
+    .counter{
+        display:grid;
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:10px;
+        width:100%;
+    }
+
+    .counter-box{
+        min-width:0;
+        padding:22px 8px;
+    }
+
+    .counter-number{
+        font-size:40px;
+    }
+
+    .counter-label{
+        font-size:7px;
+        letter-spacing:2px;
+    }
+
+    .card-scene{
+        display:flex;
+        flex-direction:column;
+        gap:22px;
+        width:100%;
+        max-width:350px;
+        margin:auto;
+    }
+
+    .photo-card{
+        width:100%;
+        height:430px;
+    }
+
+    .card-text{
+        left:22px;
+        bottom:24px;
+    }
+
+    .card-text small{
+        font-size:8px;
+        letter-spacing:2px;
+    }
+
+    .card-text h3{
+        font-size:30px;
+        line-height:1.1;
+    }
+
+    .masonry{
+        columns:2;
+        column-gap:8px;
+        max-width:100%;
+    }
+
+    .gallery-item{
+        margin-bottom:8px;
+        border-radius:4px;
+    }
+
+    .gallery-item::after{
+        font-size:28px;
+    }
+
+    .timeline{
+        width:100%;
+    }
+
+    .timeline::before{
+        left:7px;
+    }
+
+    .timeline-row,
+    .timeline-row:nth-child(even),
+    .timeline-row:nth-child(odd){
+        width:100%;
+        margin-left:0;
+        text-align:left;
+        padding:25px 8px 32px 32px;
+    }
+
+    .timeline-dot,
+    .timeline-row:nth-child(even) .timeline-dot{
+        left:1px;
+        right:auto;
+        top:32px;
+        width:12px;
+        height:12px;
+    }
+
+    .timeline-row span{
+        font-size:8px;
+        letter-spacing:3px;
+    }
+
+    .timeline-row h3{
+        font-size:29px;
+        line-height:1.1;
+        margin:7px 0;
+    }
+
+    .timeline-row p{
+        font-size:11px;
+        line-height:1.7;
+    }
+
+    .wishes{
+        display:flex;
+        flex-direction:column;
+        gap:14px;
+        width:100%;
+    }
+
+    .wish{
+        min-height:auto;
+        padding:32px 23px;
+    }
+
+    .quote{
+        font-size:48px;
+    }
+
+    .wish p{
+        font-size:21px;
+        line-height:1.5;
+    }
+
+    .wish h4{
+        margin-top:20px;
+        font-size:8px;
+        letter-spacing:2px;
+    }
+
+    .surprise-section{
+        min-height:100svh;
+        padding:75px 18px;
+    }
+
+    .surprise-content{
+        width:100%;
+        max-width:390px;
+    }
+
+    .surprise-content h2{
+        font-size:clamp(48px,14vw,65px);
+        line-height:.94;
+    }
+
+    .surprise-button{
+        margin-top:32px;
+        padding:14px 27px;
+        font-size:8px;
+        letter-spacing:2px;
+    }
+
+    .secret-message.open{
+        margin-top:32px;
+    }
+
+    .secret-message p{
+        font-size:21px;
+        line-height:1.6;
+    }
+
+    footer{
+        padding:38px 18px;
+    }
+
+    footer p{
+        font-size:7px;
+        letter-spacing:2px;
+        line-height:1.8;
+    }
+}
+
+
+/* =====================================================
+   VERY SMALL PHONES
+===================================================== */
+
+@media (max-width: 380px){
+
+    .intro-title{
+        font-size:50px;
+    }
+
+    .hero h1{
+        font-size:56px;
+    }
+
+    #typing{
+        font-size:17px;
+    }
+
+    .section-heading h2{
+        font-size:36px;
+    }
+
+    .photo-card{
+        height:390px;
+    }
+
+    .counter-number{
+        font-size:36px;
+    }
+
+    .wish p{
+        font-size:19px;
+    }
+
+    .surprise-content h2{
+        font-size:44px;
+    }
+}
+
+
+/* =====================================================
+   TOUCH DEVICES
+   Prevent hover-only effects from causing issues
+===================================================== */
+
+@media (hover:none) and (pointer:coarse){
+
+    .photo-card:hover img,
+    .gallery-item:hover img{
+        transform:none;
+        filter:none;
+    }
+
+    .gallery-item::after{
+        opacity:0;
+    }
+
+    .wish:hover{
+        transform:none;
+    }
+
+}
+
+
+
+/* =====================================================
+   NEW: CUTE 12-MONTH PHOTO TIMELINE
+   Added without changing the original animations
+===================================================== */
+
+.photo-journey-section{
+    padding:110px 7%;
+    position:relative;
+    overflow:hidden;
+}
+
+.photo-timeline{
+    max-width:1180px;
+    margin:35px auto 0;
+    position:relative;
+}
+
+.photo-timeline::before{
+    content:"";
+    position:absolute;
+    top:0; bottom:0; left:50%;
+    width:1px;
+    background:linear-gradient(to bottom,transparent,rgba(255,255,255,.25),rgba(255,255,255,.25),transparent);
+    transform:translateX(-50%);
+}
+
+.photo-timeline-row{
+    display:grid;
+    grid-template-columns:1fr 90px 1fr;
+    align-items:center;
+    min-height:350px;
+    position:relative;
+}
+
+.timeline-photo-wrap{
+    display:flex;
+    justify-content:flex-end;
+    padding-right:25px;
+}
+
+.photo-timeline-row.reverse .timeline-photo-wrap{
+    order:3;
+    justify-content:flex-start;
+    padding-right:0;
+    padding-left:25px;
+}
+
+.timeline-center{
+    grid-column:2;
+    grid-row:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:3;
+}
+
+.timeline-heart{
+    width:38px; height:38px;
+    display:grid; place-items:center;
+    border-radius:50%;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.22);
+    color:#fff;
+    font-size:14px;
+    box-shadow:0 0 0 0 rgba(255,255,255,.2);
+    animation:timelineHeartPulse 2.8s ease-in-out infinite;
+}
+
+.timeline-content{
+    padding-left:25px;
+    text-align:left;
+}
+
+.photo-timeline-row.reverse .timeline-content{
+    order:1;
+    padding-left:0;
+    padding-right:25px;
+    text-align:right;
+}
+
+.timeline-content span{
+    font-size:11px;
+    letter-spacing:3px;
+    opacity:.55;
+}
+
+.timeline-content h3{
+    margin:9px 0 12px;
+    font-size:30px;
+}
+
+.timeline-content p{
+    max-width:430px;
+    margin:0;
+    line-height:1.9;
+    opacity:.72;
+    font-size:14px;
+}
+
+.timeline-photo{
+    width:min(100%,430px);
+    height:270px;
+    overflow:hidden;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,.16);
+    background:#111;
+    position:relative;
+    box-shadow:0 25px 70px rgba(0,0,0,.55);
+    transform:translateY(0) rotate(0deg);
+    transition:transform .65s cubic-bezier(.2,.8,.2,1),box-shadow .65s ease,border-color .65s ease;
+    cursor:pointer;
+}
+
+.timeline-photo::after{
+    content:"♥";
+    position:absolute;
+    right:16px;
+    bottom:12px;
+    font-size:16px;
+    opacity:0;
+    transform:translateY(8px) scale(.7);
+    transition:.45s ease;
+}
+
+.timeline-photo img{
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+    transition:transform 1.2s cubic-bezier(.2,.8,.2,1),filter 1s ease;
+}
+
+.timeline-photo:hover{
+    transform:translateY(-8px) rotate(-1deg);
+    box-shadow:0 35px 90px rgba(0,0,0,.72);
+    border-color:rgba(255,255,255,.35);
+}
+
+.timeline-photo:hover img{
+    transform:scale(1.06);
+    filter:brightness(.92);
+}
+
+.timeline-photo:hover::after{
+    opacity:.9;
+    transform:translateY(0) scale(1);
+}
+
+.timeline-photo.photo-clicked{
+    animation:cutePhotoPop .75s ease;
+}
+
+@keyframes cutePhotoPop{
+    0%{transform:scale(1) rotate(0)}
+    35%{transform:scale(1.045) rotate(-1.5deg)}
+    65%{transform:scale(.985) rotate(1deg)}
+    100%{transform:scale(1) rotate(0)}
+}
+
+@keyframes timelineHeartPulse{
+    0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,255,255,.08)}
+    50%{transform:scale(1.08);box-shadow:0 0 0 10px rgba(255,255,255,0)}
+}
+
+@media(max-width:800px){
+    .photo-journey-section{padding:80px 5%;}
+    .photo-timeline::before{left:18px;transform:none;}
+    .photo-timeline-row,.photo-timeline-row.reverse{
+        display:grid;
+        grid-template-columns:36px 1fr;
+        min-height:0;
+        margin-bottom:55px;
+    }
+    .timeline-center{grid-column:1;grid-row:1 / span 2;align-self:start;padding-top:20px;}
+    .timeline-photo-wrap,.photo-timeline-row.reverse .timeline-photo-wrap{
+        grid-column:2;grid-row:1;
+        order:initial;justify-content:flex-start;
+        padding:0;
+    }
+    .timeline-content,.photo-timeline-row.reverse .timeline-content{
+        grid-column:2;grid-row:2;
+        order:initial;text-align:left;padding:20px 0 0;
+    }
+    .timeline-content h3{font-size:25px;}
+    .timeline-content p{font-size:13px;}
+    .timeline-photo{height:230px;}
+}
+
+@media(max-width:480px){
+    .timeline-photo{height:205px;}
+    .timeline-content h3{font-size:22px;}
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     LOADING
+===================================================== -->
+
+<div id="loading">
+
+    <div class="loading-heart">❤️</div>
+
+    <div class="loading-text">
+        LOADING OUR STORY...
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     CINEMATIC INTRO
+===================================================== -->
+
+<div id="intro">
+
+    <div class="intro-content">
+
+        <div class="intro-small">
+            OUR BEAUTIFUL STORY
+        </div>
+
+        <div class="intro-title">
+            Anandha Vishva
+            <span>&amp; Nithya</span>
+        </div>
+
+        <div class="intro-date">
+            ANANDHA VISHVA &amp; NITHYA • 2025 — 2026
+        </div>
+
+        <button class="enter-btn" onclick="enterWebsite()">
+            ENTER OUR STORY
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- PARTICLES -->
+
+<canvas id="particles"></canvas>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav>
+
+    <div class="logo">
+        Our Story ❤️
+    </div>
+
+    <div class="nav-links">
+
+        <a href="#home">HOME</a>
+
+        <a href="#memories">MEMORIES</a>
+
+        <a href="#journey">JOURNEY</a>
+
+        <a href="#wishes">WISHES</a>
+
+    </div>
+
+</nav>
+
+
+<!-- =====================================================
+     MUSIC
+===================================================== -->
+
+<audio id="music" loop>
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<button
+    class="music-btn"
+    id="musicBtn"
+    onclick="toggleMusic()">
+
+    ♪
+
+</button>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content" id="heroContent">
+
+        <div class="hero-subtitle">
+            365 DAYS • COUNTLESS MEMORIES
+        </div>
+
+        <h1>
+            Happy
+            <span>Anniversary</span>
+        </h1>
+
+        <div id="typing"></div>
+
+        <div class="hero-scroll">
+            SCROLL TO REMEMBER ↓
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     DATE COUNTER
+===================================================== -->
+
+<section class="counter-section reveal">
+
+    <div class="section-heading">
+
+        <small>OUR TIME TOGETHER</small>
+
+        <h2>
+            Every day became a
+            <span>memory.</span>
+        </h2>
+
+    </div>
+
+    <div class="counter-intro">
+
+        From the very first day until today,
+        every moment has been a small chapter
+        in our beautiful story.
+
+    </div>
+
+    <div class="counter">
+
+        <div class="counter-box">
+
+            <div class="counter-number" id="days">
+                0
+            </div>
+
+            <div class="counter-label">
+                DAYS
+            </div>
+
+        </div>
+
+        <div class="counter-box">
+
+            <div class="counter-number" id="hours">
+                0
+            </div>
+
+            <div class="counter-label">
+                HOURS
+            </div>
+
+        </div>
+
+        <div class="counter-box">
+
+            <div class="counter-number" id="minutes">
+                0
+            </div>
+
+            <div class="counter-label">
+                MINUTES
+            </div>
+
+        </div>
+
+        <div class="counter-box">
+
+            <div class="counter-number" id="seconds">
+                0
+            </div>
+
+            <div class="counter-label">
+                SECONDS
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     3D PHOTO CARDS
+===================================================== -->
+
+<section class="three-d-section reveal" id="memories">
+
+    <div class="section-heading">
+
+        <small>FAVOURITE MOMENTS</small>
+
+        <h2>
+            Memories that
+            <span>stay forever.</span>
+        </h2>
+
+    </div>
+
+
+    <div class="card-scene">
+
+
+        <!-- CARD 1 -->
+
+        <div class="photo-card">
+
+            <div class="photo-card-inner">
+
+                <img
+                    src="Photo 01.png"
+                    alt="Memory">
+
+                <div class="card-overlay"></div>
+
+                <div class="card-text">
+
+                    <small>
+                        MEMORY 01
+                    </small>
+
+                    <h3>
+                        The Beginning
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CARD 2 -->
+
+        <div class="photo-card">
+
+            <div class="photo-card-inner">
+
+                <img
+                    src="Photo 02.png"
+                    alt="Memory">
+
+                <div class="card-overlay"></div>
+
+                <div class="card-text">
+
+                    <small>
+                        MEMORY 02
+                    </small>
+
+                    <h3>
+                        Beautiful Days
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CARD 3 -->
+
+        <div class="photo-card">
+
+            <div class="photo-card-inner">
+
+                <img
+                    src="Photo 03.png"
+                    alt="Memory">
+
+                <div class="card-overlay"></div>
+
+                <div class="card-text">
+
+                    <small>
+                        MEMORY 03
+                    </small>
+
+                    <h3>
+                        Forever ❤️
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     12 MONTH PHOTO JOURNEY
+===================================================== -->
+
+<section class="photo-journey-section reveal" id="journey">
+
+    <div class="section-heading">
+        <small>OUR JOURNEY</small>
+        <h2>Chapters of <span>us.</span></h2>
+    </div>
+
+    <div class="photo-timeline">
+
+        <div class="photo-timeline-row">
+            <div class="timeline-photo-wrap">
+                <div class="timeline-photo"><img src="Photo 04.png" alt="Month 01 Memory"></div>
+            </div>
+            <div class="timeline-center"><span class="timeline-heart">♥</span></div>
+            <div class="timeline-content">
+                <span>MONTH 01</span><h3>Vadapalani Kovil</h3>
+                <p>Namma love pannitu first time Vadapalani Kovil poitu vandha andha naal….<br>Andha naalum, andha neramum, andha ninaivum… eppavum special dhaan.</p>
+            </div>
+        </div>
+
+        <div class="photo-timeline-row reverse">
+            <div class="timeline-photo-wrap">
+                <div class="timeline-photo"><img src="Photo 05.png" alt="Month 02 Memory"></div>
+            </div>
+            <div class="timeline-center"><span class="timeline-heart">♥</span></div>
+            <div class="timeline-content">
+                <span>MONTH 02</span><h3>Guru Nanak clg Busstop la</h3>
+                <p>Namma love pannitu first time morning edutha photo…<br>Indha photo dhaan namma first time kadhal diary insta la story vachadhu…</p>
+            </div>
+        </div>
+
+        <div class="photo-timeline-row">
+            <div class="timeline-photo-wrap"><div class="timeline-photo"><img src="Photo 06.png" alt="Month 03 Memory"></div></div>
+            <div class="timeline-center"><span class="timeline-heart">♥</span></div>
+            <div class="timeline-content"><span>MONTH 03</span><h3>Phoenix Mall-la edutha photo…</h3><p>Namma love pannina apram unakku vandha first birthday…<br>appo edutha photo…</p></div>
+        </div>
+
+        <div class="photo-timeline-row reverse">
+            <div class="timeline-photo-wrap"><div class="timeline-photo"><img src="Photo 07.png" alt="Month 04 Memory"></div></div>
+            <div class="timeline-center"><span class="timeline-heart">♥</span></div>
+            <div class="timeline-content"><span>MONTH 04</span><h3>Second time vadapalani kovil</h3><p>Enakku romba pidicha photo idhu…<br>Indha photo va Insta story la vachadhukku kooda ellarum romba nalla irukkunu sonnaanga… indha photo va frame pannalaamnu naan sonnen.</p></div>
+        </div>
+
+        <div class="photo-timeline-row">
+            <div class="timeline-photo-wrap"><div class="timeline-photo"><img src="Photo 08.Png" alt="Month 05 Memory"></div></div>
+            <div class="timeline-center"><span class="timeline-heart">♥</span></div>
+            <div class="timeline-content"><span>MONTH 05</span><h3>metro-la edutha photo…</h3><p>Unga mama oda new house function ku poirundhen…<br>Nee function mudichuttu vandhadhum, namma enga poradhunu theriyama suthittu irundhappo metro la edutha photo idhu…</p></div>
+        </div>
+
+        <div class="photo-timeline-row reverse">
+            <div class="timeline-photo-wrap"><div class="timeline-photo"><img src="photo 09.png" alt="Month 06 Memory"></div></div>
+            <div class="timeline-center"><span class="timeline-heart">♥</span></div>
+            <div class="timeline-content"><span>MONTH 06</span><h3>Unga akka Marriage ku edutha photo…</h3><p>Andha naal namma one week kazhichu naan unna paatha naal…<br>Ellarum photo eduthuttu irundhanga… appo namma mandapathukku mela poitu edutha photo idhu.</p></div>
+        </div>
+
+        <div class="photo-timeline-row">
+            <div class="timeline-photo-wrap"><div class="timeline-photo"><img src="Photo 10.png" alt="Month 07 Memory"></div></div>
+            <div class="timeline-center"><span class="timeline-heart">♥</span></div>
+            <div class="timeline-content"><span>MONTH 07</span><h3>Gandhi Mandapam-la edutha photo idhu…</h3><p>Appo office work kaaga one week Tirunelveli poitu vandhen…<br>Naan annaikkuthaan Tirunelveli lendhu vandhen… direct ah unkitta dhaan vandhen. Appo edutha photo idhu…</p></div>
+        </div>
+
+        <div class="photo-timeline-row reverse">
+            <div class="timeline-photo-wrap"><div class="timeline-photo"><img src="Photo 11.png" alt="Month 08 Memory"></div></div>
+            <div class="timeline-center"><span class="timeline-heart">♥</span></div>
+            <div class="timeline-content"><span>MONTH 08</span><h3>Gandhi Mandapam-la edutha photo idhu…</h3><p>Annaikku normal ah namma Sunday veliya pora maadhiriye poitu edutha photo dhaan idhu…<br>Annaikku namma return pogumbodhu appadiye saaptuttu apdiye poitom…</p></div>
+        </div>
+
+        <div class="photo-timeline-row">
+            <div class="timeline-photo-wrap"><div class="timeline-photo"><img src="Photo 12.png" alt="Month 09 Memory"></div></div>
+            <div class="timeline-center"><span class="timeline-heart">♥</span></div>
+            <div class="timeline-content"><span>MONTH 09</span><h3>Thiruchendur kovil</h3><p>Appodhaan namma first time bus la long journey porom…<br>Namma rendu perukkum romba naal aasai… rendu perum serndhu Thiruchendur kovilukku poganum nu.<br>Annaikkuthaan namma rendu perum serndhu Thiruchendur kovilukku poirundhom.</p></div>
+        </div>
+
+        <div class="photo-timeline-row reverse">
+            <div class="timeline-photo-wrap"><div class="timeline-photo"><img src="Photo 13.png" alt="Month 10 Memory"></div></div>
+            <div class="timeline-center"><span class="timeline-heart">♥</span></div>
+            <div class="timeline-content"><span>MONTH 10</span><h3>En birthday appo edutha photo…</h3><p>Appo enga office la cake vetti naan unna kootitu poi hostel la vidumbodhu edutha photo dhaan idhu…<br>En life la first time gift wrap panni oruthanga enakku gift kuduthadhu na… adhu nee dhaan.</p></div>
+        </div>
+
+        <div class="photo-timeline-row">
+            <div class="timeline-photo-wrap"><div class="timeline-photo"><img src="photo 14.png" alt="Month 11 Memory"></div></div>
+            <div class="timeline-center"><span class="timeline-heart">♥</span></div>
+            <div class="timeline-content"><span>MONTH 11</span><h3>Phoenix Mall la edutha photo…</h3><p>Annaikku ellarum summa poitu suthi paathuttu jolly ah fun pannittu vandhom…<br>Appodhaan naan unna first time western costume la paathen… appo edutha photo dhaan idhu.</p></div>
+        </div>
+
+        <div class="photo-timeline-row reverse">
+            <div class="timeline-photo-wrap"><div class="timeline-photo"><img src="Photo 15.png" alt="Month 12 Memory"></div></div>
+            <div class="timeline-center"><span class="timeline-heart">♥</span></div>
+            <div class="timeline-content"><span>MONTH 12</span><h3>Sunrise photo</h3><p>Thiruvanmiyur Beach la edutha photo…<br>Annaikku romba super ah jolly ah pochu. 
+Andha night namma Besant Nagar Beach-kku poirundhom.
+Aana andha photos romba dark ah irundhadhunaala andha photos laam vekkalai. 😅</p></div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =====================================================
+     WISHES
+===================================================== -->
+
+<section class="wishes-section reveal" id="wishes">
+
+    <div class="section-heading">
+
+        <small>SPECIAL WORDS</small>
+
+        <h2>
+            A few words from
+            <span>the heart.</span>
+        </h2>
+
+    </div>
+
+
+    <div class="wishes">
+
+
+        <div class="wish">
+
+            <div class="quote">
+                “
+            </div>
+
+            <p>
+                One year, countless memories,
+                and a thousand reasons
+                to smile.
+            </p>
+
+            <h4>
+                WITH LOVE ❤️
+            </h4>
+
+        </div>
+
+
+        <div class="wish">
+
+            <div class="quote">
+                “
+            </div>
+
+            <p>
+                You turned the simplest moments into my favourite memories,and every day with you became a little more special
+            </p>
+
+            <h4>
+                FOREVER & ALWAYS
+            </h4>
+
+        </div>
+
+
+        <div class="wish">
+
+            <div class="quote">
+                “
+            </div>
+
+            <p>
+                Here's to this beautiful chapter
+                and all the chapters still
+                waiting for us.
+            </p>
+
+            <h4>
+                HAPPY ANNIVERSARY
+            </h4>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SURPRISE
+===================================================== -->
+
+<section class="surprise-section reveal">
+
+    <div class="surprise-content">
+
+        <div class="section-heading">
+
+            <small>
+                ONE LAST SURPRISE
+            </small>
+
+        </div>
+
+        <h2>
+            There is always
+            <span>more to say.</span>
+        </h2>
+
+        <button
+            class="surprise-button"
+            onclick="openSurprise()">
+
+            OPEN MY MESSAGE
+
+        </button>
+
+
+        <div
+            class="secret-message"
+            id="secret">
+
+            <p>
+
+                “A year ago,
+                a beautiful chapter began.
+
+                <br><br>
+
+              First ah un kitta naan sry sollanum Indha oru varushathula unna romba kashtapaduthirukken thittirukken kovapattirukken enna ennavo sollirukken Adhellathukkum serthu romba.... sry...
+
+                <br><br>
+                Adhukkapparam naan unna first time love pannumbodhu enna sonneno adhe dhaan ippo marubadiyum solren…
+                <br><br>
+                Naan irukken… naan iruppen… eppavume un koodave iruppen. Ellathayum naan paathukaren.
+                <br><br>
+            Happy 1st Anniversary ❤️
+
+                <br>
+
+                And here's to many,
+                many more beautiful years.”
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <p>
+        MADE WITH ❤️ FOR OUR FIRST ANNIVERSARY
+    </p>
+
+    <br>
+
+    <p>
+        2025 — 2026
+    </p>
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   WEBSITE SETTINGS
+===================================================== */
+
+/* Countdown: today -> October 5, 2026 */
+const countdownEnd = new Date("October 5, 2026 00:00:00").getTime();
+
+/* =====================================================
+   LOADING SCREEN
+===================================================== */
+
+window.addEventListener("load",()=>{
+
+    setTimeout(()=>{
+
+        document.getElementById("loading")
+            .style.opacity="0";
+
+        setTimeout(()=>{
+
+            document.getElementById("loading")
+                .style.display="none";
+
+        },1200);
+
+    },1000);
+
+});
+
+
+/* =====================================================
+   ENTER CINEMATIC WEBSITE
+===================================================== */
+
+function enterWebsite(){
+
+    const intro =
+        document.getElementById("intro");
+
+    intro.style.opacity="0";
+    intro.style.transform="scale(1.15)";
+
+    setTimeout(()=>{
+
+        intro.style.display="none";
+
+        startMusic();
+
+    },1800);
+
+}
+
+
+/* =====================================================
+   MUSIC
+===================================================== */
+
+const music =
+    document.getElementById("music");
+
+const musicBtn =
+    document.getElementById("musicBtn");
+
+
+function startMusic(){
+
+    music.play()
+        .then(()=>{
+
+            musicBtn.classList.add("playing");
+
+        })
+        .catch(()=>{
+
+            console.log(
+                "Browser blocked autoplay."
+            );
+
+        });
+
+}
+
+
+function toggleMusic(){
+
+    if(music.paused){
+
+        music.play();
+
+        musicBtn.classList.add("playing");
+
+    }else{
+
+        music.pause();
+
+        musicBtn.classList.remove("playing");
+
+    }
+
+}
+
+
+/* =====================================================
+   TYPING ANIMATION
+===================================================== */
+
+const typingElement =
+    document.getElementById("typing");
+
+const typingText =
+    "365 days • countless memories • one beautiful story ❤️";
+
+let typingIndex=0;
+
+function typeText(){
+
+    if(typingIndex < typingText.length){
+
+        typingElement.innerHTML =
+            typingText.substring(
+                0,
+                typingIndex+1
+            ) +
+            '<span class="cursor">|</span>';
+
+        typingIndex++;
+
+        setTimeout(typeText,60);
+
+    }
+
+}
+
+setTimeout(typeText,2500);
+
+
+/* =====================================================
+   ANNIVERSARY COUNTER
+===================================================== */
+
+function updateCounter(){
+
+    const now = new Date().getTime();
+    let difference = countdownEnd - now;
+
+    if(difference < 0){
+        difference = 0;
+    }
+
+    const totalSeconds = Math.floor(difference / 1000);
+
+    const days = Math.floor(totalSeconds / (60*60*24));
+    const hours = Math.floor((totalSeconds % (60*60*24)) / (60*60));
+    const minutes = Math.floor((totalSeconds % (60*60)) / 60);
+    const seconds = totalSeconds % 60;
+
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
+}
+
+updateCounter();
+setInterval(updateCounter,1000);
+
+
+/* =====================================================
+   CUTE TIMELINE PHOTO CLICK EFFECT
+===================================================== */
+
+document.querySelectorAll(".timeline-photo").forEach(photo=>{
+    photo.addEventListener("click",()=>{
+        photo.classList.remove("photo-clicked");
+        void photo.offsetWidth;
+        photo.classList.add("photo-clicked");
+    });
+});
+
+
+/* =====================================================
+   3D PHOTO CARD MOUSE EFFECT
+===================================================== */
+
+const cards =
+    document.querySelectorAll(".photo-card");
+
+
+cards.forEach(card=>{
+
+    card.addEventListener("mousemove",(e)=>{
+
+        const rect =
+            card.getBoundingClientRect();
+
+        const x =
+            e.clientX-rect.left;
+
+        const y =
+            e.clientY-rect.top;
+
+        const centerX =
+            rect.width/2;
+
+        const centerY =
+            rect.height/2;
+
+        const rotateX =
+            -(y-centerY)/15;
+
+        const rotateY =
+            (x-centerX)/15;
+
+
+        card.style.transform =
+            `rotateX(${rotateX}deg)
+             rotateY(${rotateY}deg)
+             scale(1.03)`;
+
+    });
+
+
+    card.addEventListener("mouseleave",()=>{
+
+        card.style.transform =
+            "rotateX(0) rotateY(0) scale(1)";
+
+    });
+
+});
+
+
+/* =====================================================
+   FALLING FLOWERS / PETALS
+===================================================== */
+
+const petals=[
+    "🌸",
+    "🌺",
+    "🌷",
+    "🌹",
+    "✿",
+    "❀"
+];
+
+
+function createPetal(){
+
+    const petal =
+        document.createElement("div");
+
+    petal.className="petal";
+
+    petal.innerText =
+        petals[
+            Math.floor(
+                Math.random()*petals.length
+            )
+        ];
+
+    petal.style.left =
+        Math.random()*100+"vw";
+
+    petal.style.fontSize =
+        (10+Math.random()*18)+"px";
+
+    petal.style.animationDuration =
+        (6+Math.random()*7)+"s";
+
+    petal.style.opacity =
+        .4+Math.random()*.5;
+
+    document.body.appendChild(petal);
+
+    setTimeout(()=>{
+
+        petal.remove();
+
+    },14000);
+
+}
+
+setInterval(createPetal,500);
+
+
+/* =====================================================
+   MOUSE FOLLOWING HEARTS
+===================================================== */
+
+let lastHeart=0;
+
+document.addEventListener("mousemove",(e)=>{
+
+    const now =
+        Date.now();
+
+    if(now-lastHeart < 100){
+        return;
+    }
+
+    lastHeart=now;
+
+    const heart =
+        document.createElement("div");
+
+    heart.className="mouse-heart";
+
+    heart.innerText =
+        ["❤️","♡","♥","💕"]
+        [Math.floor(Math.random()*4)];
+
+    heart.style.left =
+        e.clientX+"px";
+
+    heart.style.top =
+        e.clientY+"px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+
+        heart.remove();
+
+    },900);
+
+});
+
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+function revealOnScroll(){
+
+    const windowHeight =
+        window.innerHeight;
+
+    revealElements.forEach(element=>{
+
+        const top =
+            element.getBoundingClientRect().top;
+
+        if(top < windowHeight-100){
+
+            element.classList.add("active");
+
+        }
+
+    });
+
+}
+
+window.addEventListener(
+    "scroll",
+    revealOnScroll
+);
+
+revealOnScroll();
+
+
+/* =====================================================
+   HERO PARALLAX
+===================================================== */
+
+const hero =
+    document.getElementById("heroContent");
+
+
+document.addEventListener("mousemove",(e)=>{
+
+    if(window.innerWidth < 800){
+        return;
+    }
+
+    const x =
+        (e.clientX/window.innerWidth-.5)*12;
+
+    const y =
+        (e.clientY/window.innerHeight-.5)*12;
+
+    hero.style.transform =
+        `translate(${x}px,${y}px)`;
+
+});
+
+
+/* =====================================================
+   PARTICLE CANVAS
+===================================================== */
+
+const canvas =
+    document.getElementById("particles");
+
+const ctx =
+    canvas.getContext("2d");
+
+let particles=[];
+
+
+function resizeCanvas(){
+
+    canvas.width =
+        window.innerWidth;
+
+    canvas.height =
+        window.innerHeight;
+
+}
+
+resizeCanvas();
+
+window.addEventListener(
+    "resize",
+    resizeCanvas
+);
+
+
+function createParticles(){
+
+    particles=[];
+
+    for(let i=0;i<100;i++){
+
+        particles.push({
+
+            x:Math.random()*canvas.width,
+
+            y:Math.random()*canvas.height,
+
+            size:Math.random()*2+0.5,
+
+            speed:Math.random()*.4+.1,
+
+            opacity:Math.random()*.7
+
+        });
+
+    }
+
+}
+
+createParticles();
+
+
+function animateParticles(){
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+    particles.forEach(p=>{
+
+        p.y-=p.speed;
+
+        if(p.y<0){
+
+            p.y=canvas.height;
+
+        }
+
+        ctx.beginPath();
+
+        ctx.arc(
+            p.x,
+            p.y,
+            p.size,
+            0,
+            Math.PI*2
+        );
+
+        ctx.fillStyle=
+            `rgba(255,255,255,${p.opacity})`;
+
+        ctx.fill();
+
+    });
+
+    requestAnimationFrame(
+        animateParticles
+    );
+
+}
+
+animateParticles();
+
+
+/* =====================================================
+   SURPRISE MESSAGE + CONFETTI
+===================================================== */
+
+function openSurprise(){
+
+    const secret =
+        document.getElementById("secret");
+
+    secret.classList.add("open");
+
+    createConfetti();
+
+}
+
+
+function createConfetti(){
+
+    for(let i=0;i<100;i++){
+
+        const confetti =
+            document.createElement("div");
+
+        confetti.style.position="fixed";
+
+        confetti.style.left =
+            Math.random()*100+"vw";
+
+        confetti.style.top="-20px";
+
+        confetti.style.width="7px";
+
+        confetti.style.height="12px";
+
+        confetti.style.background=
+            [
+                "#fff",
+                "#ffd1dc",
+                "#ff8fa3",
+                "#ff4d6d"
+            ][
+                Math.floor(Math.random()*4)
+            ];
+
+        confetti.style.zIndex="99999";
+
+        confetti.style.borderRadius="2px";
+
+        document.body.appendChild(confetti);
+
+
+        const animation =
+            confetti.animate(
+
+                [
+                    {
+                        transform:
+                        "translateY(0) rotate(0deg)"
+                    },
+
+                    {
+                        transform:
+                        `translateY(110vh)
+                         translateX(${Math.random()*300-150}px)
+                         rotate(720deg)`
+                    }
+                ],
+
+                {
+                    duration:
+                        2500+Math.random()*3000,
+
+                    easing:
+                        "cubic-bezier(.2,.8,.3,1)"
+                }
+
+            );
+
+
+        animation.onfinish=()=>{
+
+            confetti.remove();
+
+        };
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
